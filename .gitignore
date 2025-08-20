@@ -21,3 +21,6 @@ wheels/
 Thumbs.db
 # Streamlit secrets
 .streamlit/secrets.yaml
+
+
+.gemini
