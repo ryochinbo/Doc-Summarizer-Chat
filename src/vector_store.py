@@ -1,11 +1,11 @@
 import chromadb
 from chromadb.utils import embedding_functions
-import streamlit as st
+from src.__init__ import get_api_key # 追加
 
 def get_embedding_function():
     """Gemini Embedding Functionを返す"""
     # Streamlit secretsからAPIキーを取得
-    api_key = st.secrets["GEMINI_API_KEY"]
+    api_key = get_api_key("GEMINI_API_KEY") # 変更
     return embedding_functions.GoogleGenerativeAiEmbeddingFunction(api_key=api_key)
 
 def create_vector_store(texts: list[str], collection_name: str):

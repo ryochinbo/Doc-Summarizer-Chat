@@ -1,10 +1,10 @@
 import google.generativeai as genai
-import streamlit as st
 from src.vector_store import retrieve_relevant_chunks, get_vector_store
+from src.__init__ import get_api_key # 追加
 
 def get_rag_response(question: str, collection_name: str) -> str:
     """RAGに基づいて質問に回答する"""
-    genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+    genai.configure(api_key=get_api_key("GEMINI_API_KEY")) # 変更
     model = genai.GenerativeModel('gemini-pro')
 
     # ベクトルストアから関連チャンクを取得

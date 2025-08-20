@@ -4,3 +4,4 @@ google-generativeai
 langchain
 chromadb
 beautifulsoup4
+pyyaml
