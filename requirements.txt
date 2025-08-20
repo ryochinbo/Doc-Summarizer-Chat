@@ -1,0 +1,6 @@
+streamlit
+PyMuPDF
+google-generativeai
+langchain
+chromadb
+beautifulsoup4
