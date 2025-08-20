@@ -1,0 +1,4 @@
+gemini_models:
+  chat: "gemini-pro"
+  summary: "gemini-pro"
+  embedding: "embedding-001"

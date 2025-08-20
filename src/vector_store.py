@@ -1,12 +1,15 @@
 import chromadb
 from chromadb.utils import embedding_functions
-from src.__init__ import get_api_key # 追加
+from src.__init__ import get_api_key, get_gemini_model_config # get_gemini_model_configを追加
 
 def get_embedding_function():
     """Gemini Embedding Functionを返す"""
-    # Streamlit secretsからAPIキーを取得
-    api_key = get_api_key("GEMINI_API_KEY") # 変更
-    return embedding_functions.GoogleGenerativeAiEmbeddingFunction(api_key=api_key)
+    api_key = get_api_key("GEMINI_API_KEY")
+    gemini_model_config = get_gemini_model_config() # 追加
+    return embedding_functions.GoogleGenerativeAiEmbeddingFunction(
+        api_key=api_key,
+        model_name=gemini_model_config['embedding'] # 変更
+    )
 
 def create_vector_store(texts: list[str], collection_name: str):
     """テキストチャンクからベクトルストアを作成し、永続化する"""

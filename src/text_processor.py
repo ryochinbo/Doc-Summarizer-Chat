@@ -1,6 +1,6 @@
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import google.generativeai as genai
-from src.__init__ import get_api_key # 追加
+from src.__init__ import get_api_key, get_gemini_model_config # get_gemini_model_configを追加
 
 def split_text_into_chunks(text: str) -> list[str]:
     """テキストをチャンクに分割する"""
@@ -15,8 +15,9 @@ def split_text_into_chunks(text: str) -> list[str]:
 
 def summarize_text(text: str) -> str:
     """テキストを要約する"""
-    genai.configure(api_key=get_api_key("GEMINI_API_KEY")) # 変更
-    model = genai.GenerativeModel('gemini-pro')
+    genai.configure(api_key=get_api_key("GEMINI_API_KEY"))
+    gemini_model_config = get_gemini_model_config() # 追加
+    model = genai.GenerativeModel(gemini_model_config['summary']) # 変更
 
     prompt = f"以下のドキュメントを要約してください:\n\n{text}"
     response = model.generate_content(prompt)
