@@ -1,5 +1,5 @@
 # DocQuery-Streamlit
-
+開発中
 ## 概要
 
 DocQuery-Streamlitは、Webページ、PDFファイル、テキスト、Markdownファイルから情報を取得し、その内容を要約したり、RAG (Retrieval-Augmented Generation) を用いて質問応答を行うことができるStreamlitアプリケーションです。
